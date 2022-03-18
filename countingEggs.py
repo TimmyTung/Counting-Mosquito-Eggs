@@ -12,16 +12,13 @@ def count(filePath, blurFlag):
     if blurFlag == 'gaussian':
         # blur image to avoid detecting noise
         blur = cv2.GaussianBlur(gray, (11, 11), 0)
-        cv2.imshow("blur", blur)
 
         # use canny edge detection algo to detect edges
         # input image, minimum threshold val, upper threshold val
         canny = cv2.Canny(blur, 0, 120, 3);
-        cv2.imshow("canny", canny)
 
         # connect the edges to fill in the gaps
         dilated = cv2.dilate(canny,(1,1), iterations=1)
-        cv2.imshow("dilated", dilated)
 
     elif blurFlag == 'median':
         # blur image to avoid detecting noise
@@ -29,16 +26,13 @@ def count(filePath, blurFlag):
         blur1 = cv2.medianBlur(blur2, 9)
         blur3 = cv2.medianBlur(blur1, 9)
         blur = cv2.medianBlur(blur3, 9)
-        cv2.imshow("blur", blur)
 
         # use canny edge detection algo to detect edges
         # input image, minimum threshold val, upper threshold val
         canny = cv2.Canny(blur, 50, 120, 3)
-        cv2.imshow("canny", canny)
 
         # connect the edges to fill in the gaps
         dilated = cv2.dilate(canny,(1,1), iterations=2)
-        cv2.imshow("dilated", dilated)
 
     # calculate the contours
     (cnt, heirarchy) = cv2.findContours(dilated.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
@@ -50,6 +44,3 @@ def count(filePath, blurFlag):
     cv2.imshow("contours", rgb)
 
     print('Eggs in the image: ', len(cnt))
-
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
