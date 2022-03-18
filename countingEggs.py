@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Mar 18 09:39:24 2022
+
+@author: hanre
+"""
+
 import cv2
 
 
@@ -5,7 +12,7 @@ def count(filePath, blurFlag):
     # read the image
     global dilated
     image = cv2.imread(filePath)
-
+    cv2.imshow('original', image)
     # convert to grayscale
     gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
 
@@ -44,3 +51,5 @@ def count(filePath, blurFlag):
     cv2.imshow("contours", rgb)
 
     print('Eggs in the image: ', len(cnt))
+    cv2.waitKey(0);
+    cv2.destroyAllWindows();
