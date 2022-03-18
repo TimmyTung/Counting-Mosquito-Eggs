@@ -11,6 +11,8 @@ optional arguments:
   -h, --help   show this help message and exit
   -c           Boolean value for clear picture, default value as False
   -b           Boolean value for background noise, default value as False
+  -m           Use this flag if picture is micro with little background noise
+  -l           Use this flag if picture has large eggs
   -f filePath  Read in a single file and print the count of mosquito eggs
  ```
  This is an example of running an image labeled _EggFilter1.tif_:
