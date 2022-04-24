@@ -1,8 +1,7 @@
-# Example input, all files located in the same folder
+Assume all files used in the following example are located in the same directory.  Then the program can be run as follows:
 
-# "python3 stuffWithAI.py "image1.tif" >output.txt"
-# "python3 stuffWithAI.py "image1.tif" "image2.tif" >output.txt"
-# Running this will create a new image file with the bounding box and the number of eggs for each respective bounding box.
+Example 1: "python3 stuffWithAI.py "image1.tif" > output.txt"
+Example 2: "python3 stuffWithAI.py "image1.tif" "image2.tif" > output.txt"
 
-
-# Can add as many images as you seem fit and the egg count for each egg will be shown.
+Running this command will export a new image file with the bounding boxes and the number of eggs for each respective bounding box.
+It will also output the number of eggs present in each image.  Multiple images can be run at once, as seen in example 2.
