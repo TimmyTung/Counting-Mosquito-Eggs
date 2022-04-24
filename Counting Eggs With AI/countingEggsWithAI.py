@@ -7,6 +7,7 @@ import numpy as np
 from keras.models import load_model
 from PIL import Image, ImageOps
 import sys
+import os
 
 model = load_model('keras_model.h5', compile=False) #Loads the AI Model
 data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
@@ -33,6 +34,9 @@ for arg in range(1, len(sys.argv)):
     gray = cv2.cvtColor(tempImg, cv2.COLOR_RGB2GRAY)
     cv2.imwrite("gray.jpg", gray)
     frame = cv2.imread("gray.jpg")
+    try: 
+    	os.remove("gray.jpg")
+    except: pass
     black_mask = cv2.inRange(frame, lower_black, upper_black)
     canny = cv2.GaussianBlur(black_mask, (11, 11), 0)
     dilated = cv2.dilate(canny, (1, 1), iterations=1)
