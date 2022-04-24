@@ -17,8 +17,8 @@ l_img = blankImage.copy()
 lower_black = np.array([0, 0, 0], dtype="uint16")
 upper_black = np.array([70, 70, 70], dtype="uint16")
 count = 0
-print(len(sys.argv))
-print(str(sys.argv))
+#print(len(sys.argv))
+#print(str(sys.argv))
 
 for arg in range(1, len(sys.argv)):
     eggCount = 0;
@@ -126,7 +126,7 @@ for arg in range(1, len(sys.argv)):
             prevArray.append(currentArray[i])
         currentArray.clear()
 
-    print(sys.argv[arg] + "Egg Count:", eggCount)
+    print(sys.argv[arg] + " Egg Count:", eggCount)
     cv2.imwrite("Rectangle" + theImage, img3)
 
 cv2.waitKey(0)
