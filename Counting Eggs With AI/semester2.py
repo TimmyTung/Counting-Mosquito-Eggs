@@ -4,7 +4,7 @@ import math
 import os
 font = cv2.FONT_HERSHEY_TRIPLEX
 
-FILENAME = "./home/woowat/Documents/Capstone Project/Testing image stuff/stack5.jpg"
+FILENAME = 'stack5.jpg'
 
 # SETUP - CREATE BLACK MASK AND FIND CONTOURS
 lower_black = np.array([0, 0, 0], dtype="uint16")
