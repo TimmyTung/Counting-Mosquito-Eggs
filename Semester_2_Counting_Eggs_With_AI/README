@@ -12,3 +12,6 @@ Parameters:
 	2. a --stack image is a zoomed in image where mosquito eggs are larger and there are fewer eggs; this is usually taken with a microscope
 
 Output can also be redirected to stdout.
+
+Resources:
+For statistical analysis of this algorithm's accuracy, please see: https://docs.google.com/spreadsheets/d/1xHyWUYDi2amED3h8_h5AHqr6OXOGUiJbIZXcDVrEJjc/edit?usp=sharing
