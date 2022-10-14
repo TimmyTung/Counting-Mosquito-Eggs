@@ -1,0 +1,9 @@
+Assume all files in this example are located within the same directory.  Then the program can be run as follows:
+
+Example 1: "python3 finalAlgo.py "img.jpg" > output.txt"
+Example 2: "python3 coutingEggsWithAI.py "image1.jpg" "image2.jpg" > output.txt"
+
+The output file will contain a list of egg counts formatted as such:
+"Number of eggs in file <file_name>: <egg_count>"
+
+Output can also be redirected to stdout.
