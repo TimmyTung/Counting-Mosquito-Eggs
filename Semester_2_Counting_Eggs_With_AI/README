@@ -1,9 +1,14 @@
 Assume all files in this example are located within the same directory.  Then the program can be run as follows:
 
-Example 1: "python3 finalAlgo.py "img.jpg" > output.txt"
-Example 2: "python3 coutingEggsWithAI.py "image1.jpg" "image2.jpg" > output.txt"
+Example 1: "python3 --sheet finalAlgo.py "img.jpg" > output.txt"
+Example 2: "python3 --stack coutingEggsWithAI.py "image1.jpg" "image2.jpg" > output.txt"
 
 The output file will contain a list of egg counts formatted as such:
 "Number of eggs in file <file_name>: <egg_count>"
+
+Parameters:
+--sheet or --stack MUST be provided and are defined as follows:
+	1. a --sheet image is a zoomed out image where the mosquito eggs are relatively small and numerous; usually taken without a microscope 
+	2. a --stack image is a zoomed in image where mosquito eggs are larger and there are fewer eggs; this is usually taken with a microscope
 
 Output can also be redirected to stdout.
