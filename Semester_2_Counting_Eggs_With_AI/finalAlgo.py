@@ -3,6 +3,7 @@ import cv2
 import math
 import os
 import sys
+import math
 
 # function that rejects outliers from a numpy array and returns that array without outliers
 # obtained from stack overflow: https://stackoverflow.com/questions/11686720/is-there-a-numpy-builtin-to-reject-outliers-from-a-list
@@ -13,7 +14,7 @@ def reject_outliers(data, m = 2.):
     return data[s<m]
 
 # for every file name in command line, find the number of eggs in the image
-for arg in range(1, len(sys.argv)):
+for arg in range(2, len(sys.argv)):
     # ensure file name exists and is imported corectly
     try:
         FILENAME = str(sys.argv[arg])
@@ -39,33 +40,54 @@ for arg in range(1, len(sys.argv)):
     (contours, heirarchy) = cv2.findContours(dilated, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     rgb = cv2.cvtColor(img2, cv2.COLOR_BGR2RGB)
     cv2.drawContours(rgb, contours, -1, (0, 255, 0), 2)
+    #cv2.imshow("final", rgb)
+    #cv2.waitKey(0)
 
-    # calculate average area of single egg
-    contArray = []
+    if str(sys.argv[1]) == "--sheet": #SHEET IMAGE ALGO
+        # calculate average area of single egg
+        contArray = []
 
-    # get array of areas
-    for i in contours:
-        area = math.floor(cv2.contourArea(i))
-        contArray.append(area)
-    contArray.sort()
-    contArray = np.array(contArray)
-    contArray = reject_outliers(contArray)
-    contArray = reject_outliers(contArray)
-    contArray = reject_outliers(contArray)
+        # get array of areas
+        for i in contours:
+            area = math.floor(cv2.contourArea(i))
+            contArray.append(area)
+        contArray.sort()
+        contArray = np.array(contArray)
+        contArray = reject_outliers(contArray)
+        contArray = reject_outliers(contArray)
+        contArray = reject_outliers(contArray)
 
-    # assertion: average area is median of array without outliers
-    EGG_AREA = np.median(contArray)
+        # assertion: average area is median of array without outliers
+        EGG_AREA = np.median(contArray)
 
-    # NEXT STEP - CALCULATE COUNT
-    # assuming EGG_AREA is the area of one egg, and count is number of eggs
-    count = 0;
-    for i in contours:
-        area = cv2.contourArea(i)
-        if(area > EGG_AREA+(EGG_AREA*.4)):
-            count += math.floor(area/(EGG_AREA-(EGG_AREA*.18)))
-        elif(area > EGG_AREA-(EGG_AREA*.4)):
-            count += 1
+        # NEXT STEP - CALCULATE COUNT
+        # assuming EGG_AREA is the area of one egg, and count is number of eggs
+        count = 0;
+        for i in contours:
+            area = cv2.contourArea(i)
+            if(area > EGG_AREA+(EGG_AREA*.4)):
+                count += math.floor(area/(EGG_AREA-(EGG_AREA*.18)))
+            elif(area > EGG_AREA-(EGG_AREA*.4)):
+                count += 1
 
+    #STACK IMAGE ALGO
+    elif str(sys.argv[1]) == "--stack":
+         # NEXT STEP - CALCULATE AREA
+        # assuming 4350 is the area of one egg, and count is number of eggs
+        count = 0;
+        for i in contours:
+            area = cv2.contourArea(i)
+            x,y,w,h = cv2.boundingRect(i)
+            
+            if(area > 4350):
+                count += math.floor(area/4350)
+                num = math.floor(area/4350)
+            elif(area > 3000):
+                count += 1
+                num = 1
+    
+    else:
+        print("Invalid option: must include --stack or --sheet as second command line argument")
 
     print("Number of eggs in file " + str(sys.argv[arg]) + ": " + str(count));
 
