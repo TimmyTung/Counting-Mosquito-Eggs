@@ -9,7 +9,7 @@ def reject_outliers(data, m = 2.):
     s = d/mdev if mdev else 0.
     return data[s<m]
 
-FILENAME = "./stackPhotos/stack5.jpg"
+FILENAME = "DSC_0021.JPG"
 #FILENAME = "img.JPG"
 # SETUP - CREATE BLACK MASK AND FIND CONTOURS
 lower_black = np.array([0, 0, 0], dtype="uint16")
@@ -55,9 +55,9 @@ EGG_AREA = np.median(contArray)
 count = 0;
 for i in contours:
     area = cv2.contourArea(i)
-    if(area > EGG_AREA+300):
-        count += math.floor(area/(EGG_AREA-225))
-    elif(area > EGG_AREA-300):
+    if(area > EGG_AREA+(EGG_AREA*.4)):
+        count += math.floor(area/(EGG_AREA-(EGG_AREA*.18)))
+    elif(area > EGG_AREA-(EGG_AREA*.4)):
         count += 1
 
 
