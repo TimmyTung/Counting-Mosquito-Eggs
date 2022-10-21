@@ -57,18 +57,25 @@ for arg in range(2, len(sys.argv)):
         contArray = reject_outliers(contArray)
         contArray = reject_outliers(contArray)
 
-        # assertion: average area is median of array without outliers
+	# assertion: average area is median of array without outliers
         EGG_AREA = np.median(contArray)
 
         # NEXT STEP - CALCULATE COUNT
         # assuming EGG_AREA is the area of one egg, and count is number of eggs
         count = 0;
+        offset = EGG_AREA * 0.00065;
+        if EGG_AREA > 400 and EGG_AREA < 500:
+            offset = .18;
+        elif EGG_AREA < 400 and EGG_AREA > 300:
+            offset = .335;
+
         for i in contours:
             area = cv2.contourArea(i)
             if(area > EGG_AREA+(EGG_AREA*.4)):
-                count += math.floor(area/(EGG_AREA-(EGG_AREA*.18)))
+                count += math.floor(area/(EGG_AREA-(EGG_AREA*offset)))
             elif(area > EGG_AREA-(EGG_AREA*.4)):
                 count += 1
+
 
     #STACK IMAGE ALGO
     elif str(sys.argv[1]) == "--stack":
