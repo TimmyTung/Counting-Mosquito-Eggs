@@ -63,7 +63,7 @@ for arg in range(2, len(sys.argv)):
         # NEXT STEP - CALCULATE COUNT
         # assuming EGG_AREA is the area of one egg, and count is number of eggs
         count = 0;
-        offset = EGG_AREA * 0.0004;
+        offset = 0.18;
     
         if EGG_AREA > 400 and EGG_AREA < 500:
             offset = .18;
@@ -75,7 +75,10 @@ for arg in range(2, len(sys.argv)):
             offset = .49    #untested
         elif EGG_AREA < 100:
             offset = .578
-
+        elif EGG_AREA >= 1000:
+            offset = .17
+        print(EGG_AREA)
+        print(offset)
         for i in contours:
             area = cv2.contourArea(i)
             if(area > EGG_AREA+(EGG_AREA*.4)):
