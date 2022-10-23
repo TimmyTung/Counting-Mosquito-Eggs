@@ -64,8 +64,9 @@ for arg in range(2, len(sys.argv)):
         # assuming EGG_AREA is the area of one egg, and count is number of eggs
         count = 0;
         offset = 0.18;
-    
-        if EGG_AREA > 400 and EGG_AREA < 500:
+        if EGG_AREA > 500 and EGG_AREA < 600:
+            offset = .275;
+        elif EGG_AREA > 400 and EGG_AREA < 500:
             offset = .18;
         elif EGG_AREA < 400 and EGG_AREA > 300:
             offset = .335;
