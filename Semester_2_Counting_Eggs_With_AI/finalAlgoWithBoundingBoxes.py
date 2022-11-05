@@ -19,6 +19,10 @@ color = (0,255,0)
 displayBoundingBoxes = False
 imgStart = 2
 # for every file name in command line, find the number of eggs in the image
+if ((str(sys.argv[1]) != "--stack") or (str(sys.argv[1]) != "--sheet")):
+    print("Invalid command: Program requires –stack or –sheet flag in order to run.  Please see README.txt for more information.")
+    exit(0);
+
 if str(sys.argv[2]) == "--boxes": 
     imgStart = 3
     displayBoundingBoxes = True
@@ -127,9 +131,6 @@ for arg in range(imgStart, len(sys.argv)):
                     if displayBoundingBoxes == True:
                         cv2.rectangle(img, (x, y), (x + w, y + h), (0, 0, 255), 2)
                     count += 1
-    
-    else:
-        print("Invalid option: must include --stack or --sheet as second command line argument")
         
     print("Number of eggs in file " + str(sys.argv[arg]) + ": " + str(count));
     if displayBoundingBoxes == True:
