@@ -19,7 +19,7 @@ color = (0,255,0)
 displayBoundingBoxes = False
 imgStart = 2
 # for every file name in command line, find the number of eggs in the image
-if ((str(sys.argv[1]) != "--stack") or (str(sys.argv[1]) != "--sheet")):
+if ((str(sys.argv[1]) != "--stack") and (str(sys.argv[1]) != "--sheet")):
     print("Invalid command: Program requires –stack or –sheet flag in order to run.  Please see README.txt for more information.")
     exit(0);
 
