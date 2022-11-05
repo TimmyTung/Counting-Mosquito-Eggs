@@ -40,8 +40,8 @@ for arg in range(2, len(sys.argv)):
     (contours, heirarchy) = cv2.findContours(dilated, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     rgb = cv2.cvtColor(img2, cv2.COLOR_BGR2RGB)
     cv2.drawContours(rgb, contours, -1, (0, 255, 0), 2)
-    #cv2.imshow("final", rgb)
-    #cv2.waitKey(0)
+    cv2.imshow("final", rgb)
+    cv2.waitKey(0)
 
     if str(sys.argv[1]) == "--sheet": #SHEET IMAGE ALGO
         # calculate average area of single egg
@@ -65,8 +65,10 @@ for arg in range(2, len(sys.argv)):
         count = 0;
         offset = 0.18;
         if EGG_AREA > 500 and EGG_AREA < 600:
-            offset = .275;
-        elif EGG_AREA > 400 and EGG_AREA < 500:
+            offset = .33;
+        elif EGG_AREA > 400 and EGG_AREA < 450:
+            offset = .27;
+        elif EGG_AREA > 450 and EGG_AREA < 500:
             offset = .18;
         elif EGG_AREA < 400 and EGG_AREA > 300:
             offset = .335;
