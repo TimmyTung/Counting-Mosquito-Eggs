@@ -51,6 +51,9 @@ for arg in range(imgStart, len(sys.argv)):
     #cv2.drawContours(rgb, contours, -1, (0, 255, 0), 2)
     #cv2.imshow("final", rgb)
     #cv2.waitKey(0)
+    if len(contours) == 0:
+         print("No eggs found, please run another image.");
+         exit(0)
 
     if str(sys.argv[1]) == "--sheet": #SHEET IMAGE ALGO
         # calculate average area of single egg
@@ -132,5 +135,4 @@ for arg in range(imgStart, len(sys.argv)):
     if displayBoundingBoxes == True:
         cv2.imwrite(str(sys.argv[arg]).split('.')[0] + "WithBoundingBoxes.jpg", img)
         
-cv2.waitKey(0)
 
