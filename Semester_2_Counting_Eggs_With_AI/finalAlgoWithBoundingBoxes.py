@@ -74,8 +74,10 @@ for arg in range(imgStart, len(sys.argv)):
         count = 0;
         offset = 0.18;
         if EGG_AREA > 500 and EGG_AREA < 600:
-            offset = .275;
-        elif EGG_AREA > 400 and EGG_AREA < 500:
+            offset = .33;
+        elif EGG_AREA > 400 and EGG_AREA < 450:
+            offset = .27;
+        elif EGG_AREA > 450 and EGG_AREA < 500:
             offset = .18;
         elif EGG_AREA < 400 and EGG_AREA > 300:
             offset = .335;
