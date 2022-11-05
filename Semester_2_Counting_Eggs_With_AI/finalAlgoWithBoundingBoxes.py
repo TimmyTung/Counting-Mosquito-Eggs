@@ -24,7 +24,7 @@ if ((str(sys.argv[1]) != "--stack") and (str(sys.argv[1]) != "--sheet") and (str
     exit(0);
 
 if (str(sys.argv[1]) == "--boxes"):
-    print("Invalid command: Program requires –stack or –sheet flag followed by optional –boxes flag to run. Please see README.txt for more information.")
+    print("Invalid command: Program requires -–stack or -–sheet flag followed by optional -–boxes flag to run. Please see README.txt for more information.")
     exit(0);
 
 if str(sys.argv[2]) == "--boxes": 
