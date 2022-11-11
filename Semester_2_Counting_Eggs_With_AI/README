@@ -11,7 +11,7 @@ Parameters:
 --sheet or --stack MUST be provided and are defined as follows:
 	1. a --sheet image is a zoomed out image where the mosquito eggs are relatively small and numerous; usually taken without a microscope 
 	2. a --stack image is a zoomed in image where mosquito eggs are larger and there are fewer eggs; this is usually taken with a microscope
---boxes is an optional tag and defined as followed:
+--boxes is an optional tag and is defined as followed:
 	1. a --boxes tag will output the image provided with bounding boxes surrounding egg clusters along with egg count for each cluster located in the center of the box
 
 Output can also be redirected to stdout.
