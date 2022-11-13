@@ -1,3 +1,12 @@
+SETUP:
+1. Install python3 for your operating system.  See the following reference for more detailed information: https://realpython.com/installing-python/
+2. Pip3 should be included with the newest version of python downloaded from step 1.  If it is not, see the following source for downloading pip3: https://www.activestate.com/resources/quick-reads/how-to-install-and-use-pip3/#:~:text=Python%203.4%2B%20in%20most%20operating,3.9)%2C%20which%20includes%20pip3.
+3. Ensure everything is installed correctly using:
+        a. Check python: "python --version"
+        b. Check pip3: "pip3 --version"
+4. Install required files using the command "pip3 install -r requirements.txt"
+
+
 Assume all files in this example are located within the same directory.  Then the program can be run as follows:
 
 Example 1: "python3 --sheet finalAlgo.py "img.jpg" > output.txt"
